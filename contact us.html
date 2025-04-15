@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Bruno's Bakery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Include Font Awesome CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #f44336;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin-right: 20px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            transition: color 0.3s; /* Add transition for smooth color change */
+        }
+        nav ul li a:hover {
+            color: #ccc; /* Change color on hover */
+        }
+        .icons {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+        }
+        .icons a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+        .icons a:hover {
+            color: #ccc;
+        }
+        section {
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        footer {
+            background-color: #f44336;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        #contact form {
+            margin-top: 20px;
+        }
+        #contact form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        #contact form input[type="text"],
+        #contact form input[type="email"],
+        #contact form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        #contact form textarea {
+            height: 100px;
+        }
+        #contact form input[type="submit"] {
+            background-color: #f44336;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        #contact form input[type="submit"]:hover {
+            background-color: #d32f2f;
+        }
+        #reviews {
+            border-top: 1px solid #ccc;
+            padding-top: 20px;
+        }
+        #reviews h2 {
+            margin-top: 0;
+        }
+        .review {
+            margin-bottom: 20px;
+        }
+        .review strong {
+            font-weight: bold;
+        }
+        .review span {
+            color: gold;
+        }
+     
+        /* Additional styles for social media icons */
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 10px;
+            font-size: 20px;
+        }
+
+        footer a:hover {
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <header>
+        <div class="logo">
+           <a href="home2.html">
+            <img src="images/logo.jpg" alt="Bakery Logo">
+        </div>
+        
+        <nav>
+            <ul>
+                <li><a href="home2.html">HOME</a></li>
+                <li><a href="store.html">STORE</a></li>
+                <li><a href="career.html">CAREER</a></li>
+                <li><a href="new arrivals.html">NEW ARRIVALS</a></li>
+                <li><a href="about us.html">ABOUT US</a></li>
+                <li><a href="contact us.html">CONTACT US</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="icons">
+       
+        <div class="cart-icon">
+            <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+
+        </div>
+    </div>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Have a question or feedback? Feel free to reach out to us using the form below:</p>
+        <form action="#" method="POST">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="4" required></textarea><br><br>
+            <input type="submit" value="Submit">
+        </form>
+    </section>
+
+    <section id="reviews">
+        <h2>Customer Reviews</h2>
+        <div class="review">
+            <p><strong>John Doe</strong> - <span style="color: gold;">★★★★★</span></p>
+            <p>Amazing bakery! Their cakes are always fresh and delicious. My dog loves them!</p>
+        </div>
+        <div class="review">
+            <p><strong>Jane Smith</strong> - <span style="color: gold;">★★★★★</span></p>
+            <p>Excellent service and high-quality treats. Highly recommend!</p>
+        </div>
+        <div class="review">
+            <p><strong>Michael Johnson</strong> - <span style="color: gold;">★★★★★</span></p>
+            <p>Best dog bakery in town! Friendly staff and a wide variety of products.</p>
+        </div>
+    </section>
+
+    <footer style="background-color: #f44336; color: #fff; padding: 20px; text-align: center;">
+        <div>Email: contact@brunosbakery.com</div>
+        <div>Address: 123 Bakery Street, City, Country</div>
+        <div>Phone: +123456789</div>
+    <div>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+    </div>
+    </footer>
+
+</body>
+</html>

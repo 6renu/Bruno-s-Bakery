@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Bruno's Bakery</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    * {
+       margin: 0;
+       padding: 0;
+       box-sizing: border-box;
+    }
+    .header {
+         min-height: 100vh;
+         width: 100%;
+         background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)), url("images/welcome_image.jpg");
+         background-position: center;
+         background-size: cover;
+         position: relative;
+    }
+    nav {
+        display: flex;
+        padding: 2% 2%;
+        justify-content: space-between;
+        align-items: center;
+    }
+    nav img { 
+        width: 150px;
+        margin-right: 20px;
+    }
+    .nav-links {
+        display: flex;
+        align-items: center;
+    }
+    .nav-links ul {
+        list-style: none;
+        display: flex;
+    }
+    .nav-links ul li {
+        padding: 8px 12px;
+        margin: 0 5px;
+        position: relative;
+        display: inline-block;
+    }
+    .nav-links ul li a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 14px;
+        position: relative;
+    }
+    .nav-links ul li::after {
+        content: '';
+        width: 0%;
+        height: 2px;
+        background: #f44336;
+        display: block;
+        margin: 0 auto;
+        transition: width 0.3s ease;
+    } 
+    .nav-links ul li:hover::after {
+        width: 100%;
+    }
+    .logo {
+        width: 150px;
+    }
+    .nav-links ul li .fa-user {
+        display: inline-block;
+        margin-left: 20px;
+    }
+    .text-box {
+        width: 90%;
+        color: #fff;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        text-align: center;
+    }
+    .text-box h1 {
+        font-size: 62px;
+    }
+    .text-box p {
+        margin: 10px 0 40px;
+        font-size: 14px;
+        color: #fff;
+    }
+    .hero-btn {
+        display: inline-block;
+        text-decoration: none;
+        color: #fff;
+        border: 1px solid #fff;
+        padding: 12px 34px;
+        font-size: 13px;
+        background: transparent;
+        position: relative;
+        cursor: pointer;
+    }
+    .hero-btn:hover { 
+        background: #f44336;
+        transition: background 0.3s ease;
+    } 
+    nav .fa-cart-plus,
+    nav .fa-user {
+        display: none;
+        color: #fff;
+        font-size: 15px;
+        cursor: pointer;
+        margin-left: 10px;
+    }
+    nav .fa-user {
+        margin-left: 20px;
+    }
+    #menu-toggle:checked + .nav-links {
+        display: flex;
+    }
+
+    @media(max-width: 700px) {
+        nav img {
+            display: none;
+        }
+        
+        .nav-links {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: #f44336;
+            width: 100%;
+            text-align: center;
+            z-index: 2;
+            padding-top: 20px;
+            display: none;
+        }
+        .nav-links ul {
+            flex-direction: column;
+        }
+        .nav-links ul li {
+            display: block;
+            margin: 10px 0;
+        }
+       
+        nav .fa-cart-plus {
+            display: block;
+            margin-right: 15px;
+        }
+        nav .fa-user {
+            display: block;
+            margin-left: auto;
+            margin-right: 20px;
+        }
+        
+.products-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Align products in the center horizontally */
+    gap: 20px; /* Add some gap between products */
+    }
+
+.product {
+    background-color: #f9f9f9; 
+    border-radius: 10px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    overflow: hidden; 
+    width: 200px; 
+    text-align: center; }
+
+.product img {
+    width: 100%;
+    Max-width:150px;
+    height: auto;
+    border-radius: 10px 10px 0 0;
+}
+
+.product-details h3 {
+    padding: 15px;
+}
+
+.product-details h3 {
+    margin-bottom: 10px;
+}
+
+.product-details .price {
+    font-weight: bold;
+}
+.popup-container {
+#login-popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    /* Style for the popup content */
+    .popup-content {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    /* Style for the close button */
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+    }
+
+    /* Style for the form */
+    form {
+      text-align: center;
+    }
+
+    /* Style for the input fields and button */
+    input[type="text"],
+    input[type="password"],
+    button[type="submit"] {
+      padding: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+    }
+
+    button[type="submit"] {
+      padding: 8px 20px;
+      background-color: #f44336;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+}
+  </style>
+</head>
+<body>
+   <section class="header">
+       <nav> 
+          <a href="index.html" class="logo"><img src="images/logo-transparent.jpg"></a>
+          
+          <div class="nav-links">
+              <ul>
+                   <li><a href="home2.html">HOME</a></li>
+                   <li><a href="store.html">STORE</a></li>
+                   <li><a href="career.html">CAREER</a></li>
+                   <li><a href="new arrivals.html">NEW ARRIVALS</a></li>
+                   <li><a href="about us.html">ABOUT US</a></li>
+                   <li><a href="contact us.html">CONTACT US</a></li>
+                   <li><a href=""><i class="fas fa-shopping-cart"></i></a></li>
+                   <li><a href="#" onclick="document.getElementById('login-popup').style.display='flex';"><i class="fas fa-user"></i></a></li>
+              </ul>
+           </div>
+          </nav>
+     
+    <div class="text-box">
+         <h1>Puppy's Dream World</h1>
+         <p> Welcome to our dog bakery, where tails wag and mouths water at the delicious treats we have in store for your furry friends! We are thrilled to have you here exploring our site and discovering all the mouth-watering goodies we offer for your beloved pups. From freshly baked biscuits to gourmet cakes made with the finest ingredients, every treat is crafted with love and care to ensure your dogs' taste buds are satisfied. Our mission is simple to provide high-quality, healthy treats that not only make tails wag but also keep your furry companions happy and healthy. So come on in, browse through our selection, and treat your four-legged family members to something special today! Your pups will thank you, and we can't wait for you to become part of our dog-loving community.</p>
+         <a href="" class="hero-btn">Visit Us </a>
+    </div>
+    <!-- Login Popup -->
+  <div id="login-popup" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 999;">
+
+    <!-- Popup Content -->
+    <div class="popup-content" style="width: 300px; background-color: #fff; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; border-radius: 10px;">
+
+      <!-- Close Button -->
+      <span onclick="document.getElementById('login-popup').style.display='none'" style="position: absolute; top: 10px; right: 10px; cursor: pointer; font-size: 20px;">&times;</span>
+
+      <!-- Login Form -->
+      <form action="">
+        <div class="input-box" style="margin-bottom: 20px;">
+          <input type="text" placeholder="Username" required style="width: 100%; height: 40px; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+        </div>
+        <div class="input-box" style="margin-bottom: 20px;">
+          <input type="password" placeholder="Password" required style="width: 100%; height: 40px; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+        </div>
+        <button type="submit" class="btn" style="width: 100%; height: 40px; background-color: #f44336; color: #fff; border: none; border-radius: 5px; cursor: pointer;">Login</button>
+      </form>
+    </div>
+  </div>
+    </section>
+
+
+
+<section class="fav" style=" text-align: center; margin: 0 auto;">
+    <h3 style="text-align: center; color: #000; text-transform: uppercase; font-size: 2rem; font-weight: bold; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Best Sellers</h3>
+
+    <table class="products-container" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+      <tr>
+        <td class="product" style="background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); overflow: hidden; width: 200px; text-align: center;" >
+            <img src="images/cake1.jpg" alt="Royal Velvet Delight Cake"style="width: 100%;max-width: 150px; height: auto; border-radius: 10px 10px 0 0;">
+            <div class="product-details">
+            <h3>Royal Velvet Delight Cake</h3>
+            <div class="price">$78.99</div>
+           <a href="cart.html"  style="display: inline-block; text-decoration: none; color: #000 !important; border: 1px solid #000 !important; padding: 10px 20px; font-size: 13px; background: transparent; position: relative; cursor: pointer; margin-top: 10px; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); transition: background 0.3s ease;" onmouseover="this.style.backgroundColor='#f44336'; this.style.color='#fff';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#000';">Add to Cart</a>
+         </td>
+
+       
+        <td class="product" style="background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); overflow: hidden; width: 200px; text-align: center;">
+            <img src="images/cake2.jpg" alt="Bony Cake"style="width: 150px; height: 150px; border-radius: 8px;">
+            <h3>Bony Cake</h3>
+            <div class="price">$72.99</div>
+             <a href="cart.html"  style="display: inline-block; text-decoration: none; color: #000 !important; border: 1px solid #000 !important; padding: 10px 20px; font-size: 13px; background: transparent; position: relative; cursor: pointer; margin-top: 10px; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); transition: background 0.3s ease;" onmouseover="this.style.backgroundColor='#f44336'; this.style.color='#fff';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#000';">Add to Cart</a>
+        </td>
+        
+<td class="product" style="background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); overflow: hidden; width: 200px; text-align: center;">
+            <img src="images/cake3.jpg" alt="Squirrel Cake"style="width: 150px; height: 150px; border-radius: 8px;">
+            <h3>Squirrel Cake</h3>
+            <div class="price">$80.99</div>
+            <a href="cart.html" style="display: inline-block; text-decoration: none; color: #000 !important; border: 1px solid #000 !important; padding: 10px 20px; font-size: 13px; background: transparent; position: relative; cursor: pointer; margin-top: 10px; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); transition: background 0.3s ease;" onmouseover="this.style.backgroundColor='#f44336'; this.style.color='#fff';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#000';">Add to Cart</a> 
+        </td>
+      </tr>
+<tr>  
+<td class="product" style="background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); overflow: hidden; width: 200px; text-align: center;">
+            <img src="images/cake4.jpg" alt="Caramel-Strawbwrry Bliss Cake"style="width: 150px; height: 150px; border-radius: 8px;">
+            <h3>Caramel-Strawbwrry Bliss Cake</h3>
+            <div class="price">$85.99</div>
+            <a href="cart.html"  style="display: inline-block; text-decoration: none; color: #000 !important; border: 1px solid #000 !important; padding: 10px 20px; font-size: 13px; background: transparent; position: relative; cursor: pointer; margin-top: 10px; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); transition: background 0.3s ease;" onmouseover="this.style.backgroundColor='#f44336'; this.style.color='#fff';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#000';">Add to Cart</a>
+        </td>
+      
+<td class="product" style="background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); overflow: hidden; width: 200px; text-align: center;">
+            <img src="images/cake5.jpg" alt="Unicorn Cake"style="width: 150px; height: 150px; border-radius: 8px;">
+            <h3>Unicorn Cake</h3>
+            <div class="price">$94.99</div>
+            <a href="cart.html"  style="display: inline-block; text-decoration: none; color: #000 !important; border: 1px solid #000 !important; padding: 10px 20px; font-size: 13px; background: transparent; position: relative; cursor: pointer; margin-top: 10px; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); transition: background 0.3s ease;" onmouseover="this.style.backgroundColor='#f44336'; this.style.color='#fff';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#000';">Add to Cart</a>
+        </td>
+
+<td class="product" style="background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); overflow: hidden; width: 200px; text-align: center;">
+            <img src="images/cake6.jpg" alt="Sunshine Banana Cake"style="width: 150px; height: 150px; border-radius: 8px;">
+            <h3>Sunshine Banana Cake</h3>
+            <div class="price">$46.99</div>
+            <a href="cart.html"  style="display: inline-block; text-decoration: none; color: #000 !important; border: 1px solid #000 !important; padding: 10px 20px; font-size: 13px; background: transparent; position: relative; cursor: pointer; margin-top: 10px; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); transition: background 0.3s ease;" onmouseover="this.style.backgroundColor='#f44336'; this.style.color='#fff';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#000';">Add to Cart</a>
+        </td>
+      </tr> 
+<tr> 
+ <td class="product" style="background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); overflow: hidden; width: 200px; text-align: center;">
+            <img src="images/treat1.jpg" alt="Squirrel Treats"style="width: 150px; height: 150px; border-radius: 8px;">
+            <h3>Squirrel Treats</h3>
+            <div class="price">$10.99</div>
+            <a href="cart.html"  style="display: inline-block; text-decoration: none; color: #000 !important; border: 1px solid #000 !important; padding: 10px 20px; font-size: 13px; background: transparent; position: relative; cursor: pointer; margin-top: 10px; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); transition: background 0.3s ease;" onmouseover="this.style.backgroundColor='#f44336'; this.style.color='#fff';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#000';">Add to Cart</a>
+        </td>
+        
+<td class="product" style="background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); overflow: hidden; width: 200px; text-align: center;">
+            <img src="images/treat2.jpg" alt="Combo Treats"style="width: 150px; height: 150px; border-radius: 8px;">
+            <h3>Combo Treats</h3>
+            <div class="price">$15.99</div>
+            <a href="cart.html"  style="display: inline-block; text-decoration: none; color: #000 !important; border: 1px solid #000 !important; padding: 10px 20px; font-size: 13px; background: transparent; position: relative; cursor: pointer; margin-top: 10px; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); transition: background 0.3s ease;" onmouseover="this.style.backgroundColor='#f44336'; this.style.color='#fff';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#000';">Add to Cart</a>
+        
+    </td>
+
+<td class="product" style="background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); overflow: hidden; width: 200px; text-align: center;">
+            <img src="images/cupcake2.jpg" alt="Custom Made Cupcake"style="width: 150px; height: 150px; border-radius: 8px;">
+            <h3>Custom Made Cupcake</h3>
+            <div class="price">$45.99</div>
+            <a href="cart.html"  style="display: inline-block; text-decoration: none; color: #000 !important; border: 1px solid #000 !important; padding: 10px 20px; font-size: 13px; background: transparent; position: relative; cursor: pointer; margin-top: 10px; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); transition: background 0.3s ease;" onmouseover="this.style.backgroundColor='#f44336'; this.style.color='#fff';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#000';">Add to Cart</a>
+        
+    </td>
+   </tr>
+  </table>
+
+</section>
+
+<footer style="background-color: #f44336; color: #fff; padding: 20px; text-align: center;">
+       <div>Email: contact@brunosbakery.com</div>
+       <div>Address: 123 Bakery Street, City, Country</div>
+   </footer>
+</body>
+
+</html>
